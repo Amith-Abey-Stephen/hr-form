@@ -23,13 +23,13 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/api/hr-nomination', async (req, res) => {
-  const { companyName, hrName, mobile, email, nominator, preferredTimeSlot } = req.body;
+  const { companyName, hrName, hrPhone, hrEmail, nominator, preferredTimeSlot } = req.body;
   try {
     await db.collection('hr-nominations').add({
       companyName,
       hrName,
-      mobile,
-      email,
+      hrPhone,
+      hrEmail,
       nominator,
       preferredTimeSlot,
       timestamp: admin.firestore.FieldValue.serverTimestamp()
